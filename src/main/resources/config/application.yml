@@ -1,0 +1,52 @@
+# server config
+server:
+  port: 8080
+  servlet:
+    context-path: /simplecard
+  tomcat:
+    uri-encoding: UTF-8
+
+#datasource config
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jeesite?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: false
+      idle-timeout: 30000
+      pool-name: HikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: select 1
+
+  devtools:
+    add-properties: false
+  profiles:
+    active: default
+
+# log config
+# logging:
+#  config: classpath:config/logback-spring.xml
+
+# mybatis-plus config
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.lcy.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 驼峰下划线转换
+    # map-underscore-to-camel-case: true
+    # 配置的缓存的全局开关
+    # cache-enabled: true
+    # 延时加载的开关
+    # lazy-loading-enabled: true
+    # 开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
+    # multiple-result-sets-enabled: true
+    # use-generated-keys: true
+    # default-statement-timeout: 60
+    # default-fetch-size: 100

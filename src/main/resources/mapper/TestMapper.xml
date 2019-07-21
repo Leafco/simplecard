@@ -1,0 +1,19 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lcy.simplecard.mapper.TestDao">
+    <resultMap type="com.lcy.simplecard.entity.TSNotice" id="tsnoteMap">
+        <id column="id" property="id" />
+        <result column="notice_title" property="noticeTitle" />
+        <result column="notice_content" property="noticeContent" />
+        <result column="notice_type" property="noticeType" />
+        <result column="notice_level" property="noticeLevel" />
+        <result column="notice_term" property="noticeTerm" />
+        <result column="create_user" property="createUser" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <select id="getNoteList" resultMap="tsnoteMap">
+        select * from t_s_notice
+    </select>
+
+</mapper>
